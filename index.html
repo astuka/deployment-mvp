@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Automation Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Deployment Automation Assistant</h1>
+        <div class="description">
+            <p>
+                Streamline your deployment process in locked-down enterprise environments. This tool generates deployment scripts tailored for environments with restricted permissions and limited administrative access. Currently only supports PowerShell scripts for IIS deployments, with future support planned for Ansible playbooks and other deployment strategies.
+            </p>
+        </div>
+        <div class="card">
+            <form id="deploymentForm">
+                <div class="form-group">
+                    <label for="serverName">Server Name:</label>
+                    <input type="text" 
+                           id="serverName" 
+                           name="serverName" 
+                           placeholder="e.g., iis-server-01 or 192.168.1.100"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="targetDirectory">Target Directory:</label>
+                    <input type="text" 
+                           id="targetDirectory" 
+                           name="targetDirectory" 
+                           placeholder="e.g., C:\inetpub\wwwroot\MyApp"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="appPoolName">Application Pool Name:</label>
+                    <input type="text" 
+                           id="appPoolName" 
+                           name="appPoolName" 
+                           placeholder="e.g., MyAppPool"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="artifactSourcePath">Artifact Source Path:</label>
+                    <input type="text" 
+                           id="artifactSourcePath" 
+                           name="artifactSourcePath" 
+                           placeholder="e.g., \\shared-drive\deployments\MyApp_v1.0.zip"
+                           required>
+                </div>
+                <button type="submit" class="submit-btn">Generate PowerShell Script</button>
+            </form>
+        </div>
+
+        <div class="card script-output-container">
+            <h2>Generated PowerShell Script:</h2>
+            <div class="script-actions">
+                <button id="copyButton" class="copy-btn">Copy to Clipboard</button>
+                <button id="downloadButton" class="download-btn">Download Script</button>
+            </div>
+            <pre id="scriptOutput" class="script-output">
+# Generated script will appear here...
+            </pre>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="copyright">© JBR Holdings 2025</div>
+            <div class="feedback">
+                <a href="https://forms.gle/fZSC1jpEh4spBizX9" class="feedback-link">Have some ideas on what to add, or bugs to fix? We'd love to hear it!</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
